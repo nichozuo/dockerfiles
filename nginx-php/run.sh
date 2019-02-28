@@ -22,4 +22,12 @@ docker run \
     richarvey/nginx-php-fpm:1.5.7
 
 # 设置时区
-docker cp /usr/share/zoneinfo/Asia/Shanghai nginx:/etc/localtime
+docker exec nginx apk add -U tzdata
+docker exec nginx cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# 安装redis扩展
+docker exec -it nginx bash
+mkdir -p /usr/src/php/ext/redis 
+curl -L https://github.com/phpredis/phpredis/archive/4.2.0.tar.gz | tar xvz -C /usr/src/php/ext/redis --strip 1 
+echo 'redis' >> /usr/src/php-available-exts 
+docker-php-ext-install redis
