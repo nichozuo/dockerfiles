@@ -10,6 +10,6 @@ docker run \
     --publish 3306:3306 \
     --volume /soft/mysql:/var/lib/mysql \
     --env MYSQL_ROOT_PASSWORD=Nihao123 \
-    nichozuo/mysql:5.7.25
+    mysql:5.7.25
 
 docker exec mysql cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

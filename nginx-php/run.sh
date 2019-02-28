@@ -19,7 +19,7 @@ docker run \
     --volume /soft/nginx/sites:/var/www/html/sites \
     --volume /soft/nginx/logs:/var/www/html/logs \
     --volume /soft/nginx/confs:/etc/nginx/sites-enabled \
-    nichozuo/nginx-php:1.5.7
+    richarvey/nginx-php-fpm:1.5.7
 
 # 设置时区
 docker cp /usr/share/zoneinfo/Asia/Shanghai nginx:/etc/localtime
