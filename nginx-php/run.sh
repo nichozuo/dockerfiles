@@ -5,6 +5,7 @@
 mkdir -p /soft/nginx/sites
 mkdir -p /soft/nginx/logs
 mkdir -p /soft/nginx/confs
+mkdir -p /soft/nginx/certs
 
 # 启动容器
 docker run \
@@ -18,7 +19,9 @@ docker run \
     -e 'PHP_ERRORS_STDERR=1' \
     --volume /soft/nginx/sites:/var/www/html/sites \
     --volume /soft/nginx/logs:/var/www/html/logs \
+    --volume /soft/nginx/certs:/var/www/html/certs \
     --volume /soft/nginx/confs:/etc/nginx/sites-enabled \
+    registry-vpc.cn-shenzhen.aliyuncs.com/hoola/nginx-php:1.5.7
     richarvey/nginx-php-fpm:1.5.7
 
 # 设置时区
